@@ -1,0 +1,19 @@
+extends base
+
+block content
+    main.main.movie-home
+        .card-container
+            each movie in user.watchList
+                .flip-card
+                    .flip-card-inner
+                        .flip-card-front
+                            img(src=`/img/movies/${movie.image}`, alt="movie-name", style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            a.movie-link(href=`/genre/${movie.genre}/${movie.slug}`)
+                                h1.movie-name #{movie.name}
+                                p.movie-descrp= `${movie.description.split('.')[0]}`
+                                h2.movie-rating IMBD #{movie.rating}/10
+                            div.buttons-watchlist
+                                a(href=`genre/${movie.genre}/${movie.slug}`) 
+                                    button.watch-now(id='watchnow' data-slug=movie.slug) watch now
+                                button.remove-movie(id='remove-movie' data-slug=movie.slug) remove

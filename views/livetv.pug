@@ -1,0 +1,33 @@
+extends base
+
+include _reviewCard
+
+block content
+    iframe.movie-frame( src=`${channel.url}`)
+    div.movie-info
+        h1.movie-name-head #{channel.name}
+        p.movie-description #{channel.description}
+        
+    div.buttons-container
+        button.like-movie(id='likemovie' data-slug=channel.slug) Like ❤ #{channel.likes.length==0?'':`(${channel.likes.length})`}
+        button.dislike-movie(id='dislikemovie' data-slug=channel.slug) Dislike 👎🏻 #{channel.dislikes.length==0?'':`(${channel.dislikes.length})`}
+        a(href=`whatsapp://send?text=${channel.url}` data-action="share/whatsapp/share") 
+            button.recommend-movie(id='recommendmovie') share 
+    h2.heading-review Review And Rating 
+    div.rev-container
+        form.review-rate(data-id=channel.id)
+            input#review-text(type="text" placeHolder="write your review here(max 25 characters)")
+            select#Numbers(name="rating")
+                option(value="1") 1
+                option(value="2") 2 
+                option(value="3") 3    
+                option(value="4") 4    
+                option(value="5") 5    
+            button.btnreview-movie(id='recommendmovie') submit
+
+    section.section-reviews 
+        .reviews
+            each review in channel.reviews
+                +reviewCard(review)
+
+

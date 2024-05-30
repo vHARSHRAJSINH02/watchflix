@@ -1,0 +1,28 @@
+extends base 
+
+block content
+    main.main
+        .add-taxi-cont
+            h2.heading-secondary.ma-bt-lg Add a movie
+            form.form-add-movie
+                .form__group
+                    label.form__label(for='movie-name') Movie name
+                    input#movie-name.form__input(type='name', placeholder='pushpa:the rise', required maxlength='25')
+                .form__group.ma-bt-ed
+                    label.form__label(for='genre') Movie genre
+                    input#movie-genre.form__input(type='genre', placeholder='Action,Comedy etc..', required maxlength='8')
+                .form__group.ma-bt-ed    
+                    label.form__label(for='description') Movie short description 
+                    input#movie-desc.form__input(type='description', placeholder='About the movie', required, minlength='15', maxlength='300')
+                .form__group.ma-bt-ed    
+                    label.form__label(for='imbd') Movie IMBD 
+                    input#movie-imbd.form__input(type='imbd', placeholder='7 or 7.8', required maxlength='3')
+                .form__group.ma-bt-ed    
+                    label.form__label(for='url') Movie URL 
+                    input#movie-url.form__input(type='url', placeholder='https://www.youtube.com/embed/pKctjlxbFDQ', minlength='5')
+                .form__group.form__photo-upload
+                    input.form__upload(type='file',accept='image/*',id='photo',name='photo')
+                    label(for='photo') Add image  
+                    label.red-label Add poster image of the movie!
+                .form__group
+                    button.btn.btn--green(id='add-movie') Add Movie

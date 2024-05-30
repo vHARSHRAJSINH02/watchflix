@@ -1,0 +1,35 @@
+extends base
+
+block content
+    h1.heading-genres Live News And TV
+    .card-container-genre
+        each channel in liveChannels
+            .flip-card
+                .flip-card-inner
+                    if user
+                        .flip-card-front
+                            a.movie-link( href=`/livetv/${channel.slug}`)
+                                img(src=`/img/livetv/${channel.image}`, alt=`${channel.slug}`, style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            a.movie-link(href=`/livetv/${channel.slug}`)
+                                img(src=`/img/livetv/${channel.image}`, alt=`${channel.slug}`, style="width:300px;height:250px;border-radius:10px")
+                    else 
+                        .flip-card-front
+                            a.movie-link(href=`/login`)
+                                img(src=`/img/livetv/${channel.image}`, alt=`${channel.slug}`, style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            a.movie-link(href=`/login`)
+                                img(src=`/img/livetv/${channel.image}`, alt=`${channel.slug}`, style="width:300px;height:250px;border-radius:10px")
+    h1.heading-genres Movies Section
+    .card-container-genre
+        each genre in genres
+            .flip-card
+                .flip-card-inner
+                        .flip-card-front
+                            a.movie-link(href=`/genre/${genre.name}`)
+                                img(src=`/img/genre/${genre.image}`, alt=`${genre.slug}`, style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            a.movie-link(href=`/genre/${genre.name}`)
+                                img(src=`/img/genre/${genre.image}`, alt=`${genre.slug}`, style="width:300px;height:250px;border-radius:10px")
+    
+

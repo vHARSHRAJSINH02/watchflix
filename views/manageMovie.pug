@@ -1,0 +1,15 @@
+extends base
+
+block content
+        .card-container-movie
+            each movie in movies
+                .flip-card
+                    .flip-card-inner
+                        .flip-card-front
+                            img(src=`/img/movies/${movie.image}`, alt=`${movie.slug}`, style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            a.movie-link(href=`/genre/${movie.genre}/${movie.slug}`)
+                                h1.movie-name #{movie.name}
+                                //- p.movie-descrp= `${movie.description.split('.')[0]}`
+                                h2.movie-rating IMBD #{movie.ImbdRating}/10
+                            button.deletemovie(id='delete-movie' data-id=movie.id) Delete

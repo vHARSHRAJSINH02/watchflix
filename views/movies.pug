@@ -1,0 +1,24 @@
+extends base
+
+block content
+        .card-container-movie
+            each movie in movies
+                .flip-card
+                    .flip-card-inner
+                        .flip-card-front
+                            img(src=`/img/movies/${movie.image}`, alt="movie-name", style="width:300px;height:250px;border-radius:10px")
+                        .flip-card-back
+                            if user
+                                a.movie-link(href=`/genre/${movie.genre}/${movie.slug}`)
+                                    h1.movie-name #{movie.name.split(' ').length>8?movie.name.split(' ')[0]:movie.name}
+                                    p.movie-descrp= `${movie.description.split('.')[0]}...`
+                                    h2.movie-rating IMBD #{movie.ImbdRating}/10
+
+                            else
+                                a.movie-link(href=`/login`)
+                                    h1.movie-name #{movie.name.split(' ').length>8?movie.name.split(' ')[0]:movie.name}
+                                    p.movie-descrp= `${movie.description.split('.')[0]}....`
+                                    h2.movie-rating IMBD #{movie.ImbdRating}/10
+   
+ 
+                        

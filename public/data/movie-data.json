@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "6374c0c97c05f3fc04dc2185",
+    "name": "The Kashmir Files",
+    "rating": 8.3,
+    "image": "movie-4.jpg",
+    "url": "https://www.youtube.com/embed/A179apttY58",
+    "description": "Krishna endeavours to uncover the reason behind his parents' brutal killings in Kashmir. He is shocked to uncover a web of lies and conspiracies in connection with the massive genocide.",
+    "__v": 0
+  },
+
+  {
+    "_id": "6374c1c37c05f3fc04dc218a",
+    "name": "M.S. Dhoni: The Untold Story",
+    "rating": 7.9,
+    "image": "movie-6.jpg",
+    "url": "https://www.youtube.com/embed/6L6XqWoS8tw",
+    "description": "M S Dhoni, a boy from Ranchi, aspires to play cricket for India. Though he initially tries to please his father by working for the Indian Railways, he ultimately decides to chase his dreams.",
+    "__v": 0
+  }
+]

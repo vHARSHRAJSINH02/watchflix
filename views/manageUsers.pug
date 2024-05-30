@@ -1,0 +1,14 @@
+extends base 
+
+
+block content
+    main.main
+        .reviews
+            div.card-container
+                each user in users
+                    div.card
+                        img(src=`/img/users/${user.photo}` alt='John' style='width:100%')
+                        h1 #{user.name}
+                        p.title #{user.email}
+                        p.title #{user.role}
+                        button.deleteUser(data-id=user.id) Delete

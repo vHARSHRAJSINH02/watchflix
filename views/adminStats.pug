@@ -1,0 +1,28 @@
+extend base
+
+block content
+    main.main
+        div.activity-cont
+            div.stats-para 
+                P All the data of the application.For admin use only! Dont share with anyone as per our privacy policy.✔
+            div.stats-cont
+                a.link-stats(href='/manage-genre')
+                    div.like-counts
+                        h1.count-likes #{genres.length}
+                        h1.heading-likes Genres 
+                a.link-stats(href='/manage-movies')
+                    div.dislike-counts
+                        h1.count-likes #{movies.length}
+                        h1.heading-likes Movies 
+        div.stats-cont-2
+            a.link-stats(href='/manage-reviews')
+                div.watched-counts
+                    h1.count-watched #{reviews.length}
+                    h1.heading-reviwed Reviews 
+            a.link-stats(href='/manage-users')
+                div.reviewed-counts
+                    h1.count-watched #{users.length}
+                    h1.heading-reviwed Users  
+
+
+

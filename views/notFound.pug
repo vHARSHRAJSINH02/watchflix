@@ -1,0 +1,11 @@
+extend base
+
+block content
+    main.main
+        .error
+            .error__title
+                h2.heading-secondary.heading-secondary--error= `Sorry! no ${type} Found.`   
+                    h2.error__emoji 😢 🤯
+            .error__msg= `${type==='movies'?'Add movies to watchlist': 'Try again later!'} `
+            a.bookresto(href='/') Go to home
+    

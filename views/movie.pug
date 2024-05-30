@@ -1,0 +1,43 @@
+extends base
+
+include _reviewCard
+
+block content
+    video.movie-frame(controls autoplay)
+      source(src=`/mov/${movie.url}.mp4`, type="video/mp4" autoplay=true)
+      source(src="movie.ogg", type="video/ogg")
+      | Your browser does not support the video tag.
+    //- iframe.movie-frame(src=`${movie.url}` autoplay)
+    div.movie-info
+        h1.movie-name-head #{movie.name}
+        p.movie-description #{movie.description}
+        h2.movie-IMBD IMBD #{movie.ImbdRating}/10
+        if movie.rating>0
+            h2.movie-IMBD Watchflix Rating #{movie.rating}/5  #{`(${movie.numberRatings})`}
+
+
+    div.buttons-container
+        button.watch-later(id='watchlater' data-slug=movie.slug) watch later 🕒
+        button.like-movie(id='likemovie' data-slug=movie.slug) Like ❤ #{movie.likes.length==0?'':`(${movie.likes.length})`}
+        button.dislike-movie(id='dislikemovie' data-slug=movie.slug) Dislike 👎🏻 #{movie.dislikes.length==0?'':`(${movie.dislikes.length})`}
+
+        a(href=`whatsapp://send?text=${movie.url}` data-action="share/whatsapp/share") 
+            button.recommend-movie(id='recommendmovie') Share 
+    h2.heading-review Review And Rating 
+    div.rev-container
+        form.review-rate(data-id=movie.id)
+            input#review-text(type="text" placeHolder="write your review here(max 25 characters)")
+            select#Numbers(name="rating")
+                option(value="1") 1
+                option(value="2") 2 
+                option(value="3") 3    
+                option(value="4") 4    
+                option(value="5") 5    
+            button.btnreview-movie(id='recommendmovie') submit
+
+    section.section-reviews 
+        .reviews
+            each review in movie.reviews
+                +reviewCard(review)
+
+
